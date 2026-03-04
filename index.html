@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baughman Township Fire &amp; EMS Levy — May 6, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════
+   RESET & VARIABLES
+══════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --navy:      #1a2f4e;
+  --navy-dk:   #0f1f35;
+  --red:       #991b1b;
+  --gold:      #b8861a;
+  --gold-lt:   #d4a530;
+  --gold-pale: #fffbeb;
+  --gold-bdr:  #fde68a;
+  --green:     #14532d;
+  --green-pale:#f0fdf4;
+  --paper:     #f8f5ef;
+  --white:     #ffffff;
+  --gray:      #374151;
+  --lgray:     #6b7280;
+  --border:    #d8d0be;
+  --red-pale:  #fef2f2;
+  --blue-pale: #eff6ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  color: var(--gray);
+  background: var(--paper);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════
+   STICKY NAV
+══════════════════════════════════ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-dk);
+  border-bottom: 3px solid var(--gold);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  padding: 14px 0;
+  flex-shrink: 0;
+}
+.nav-brand em { color: var(--gold-lt); font-style: normal; }
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .5px; text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  padding: 16px 10px;
+  display: block;
+  transition: color .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--gold-lt); }
+.nav-cta {
+  background: var(--red);
+  color: #fff !important;
+  padding: 8px 16px !important;
+  border-radius: 4px;
+  margin: 6px 0;
+}
+.nav-cta:hover { background: #7f1d1d; color: #fff !important; }
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+.hero {
+  background: var(--navy);
+  padding: 64px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -55deg, transparent, transparent 16px,
+    rgba(255,255,255,.018) 16px, rgba(255,255,255,.018) 32px
+  );
+}
+.hero-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold-lt);
+  display: inline-block;
+  border: 1px solid rgba(212,165,48,.4);
+  padding: 4px 14px; border-radius: 2px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 900; color: #fff;
+  line-height: 1.08; letter-spacing: -.5px;
+  position: relative;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: #fcd34d; font-style: normal; }
+.hero-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px; color: rgba(255,255,255,.6);
+  position: relative; margin-bottom: 32px;
+  letter-spacing: .3px;
+}
+.hero-stats {
+  display: inline-flex;
+  gap: 0;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.hs-cell {
+  padding: 16px 28px;
+  border-right: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+}
+.hs-cell:last-child { border-right: none; }
+.hs-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px; font-weight: 800;
+  color: #fcd34d; display: block; line-height: 1;
+}
+.hs-lbl {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,.5);
+  display: block; margin-top: 4px;
+  letter-spacing: .5px;
+}
+.hero-gold-bar {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold-lt), #fcd34d, var(--gold-lt), transparent);
+}
+
+/* COUNTDOWN */
+.countdown-wrap {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  padding: 20px 32px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  position: relative;
+}
+.countdown-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold-lt);
+}
+.countdown-units {
+  display: flex; gap: 6px; align-items: center;
+}
+.cd-block { text-align: center; min-width: 62px; }
+.cd-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 900;
+  color: #fff; line-height: 1; display: block;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  padding: 8px 10px; min-width: 62px;
+}
+.cd-unit {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  display: block; margin-top: 5px;
+}
+.cd-sep {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700;
+  color: rgba(255,255,255,.25);
+  line-height: 1; margin-bottom: 18px;
+}
+.countdown-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px; color: rgba(255,255,255,.45); letter-spacing: .5px;
+}
+.countdown-sub strong { color: rgba(255,255,255,.7); font-weight: 600; }
+.cd-started {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: #fcd34d; letter-spacing: 1px; display: none;
+}
+
+/* ══════════════════════════════════
+   ALERT BANNER
+══════════════════════════════════ */
+.alert-banner {
+  background: var(--red);
+  padding: 12px 40px;
+  display: flex; align-items: center; gap: 14px;
+}
+.alert-banner p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: .5px; color: #fff;
+}
+.alert-banner p span { color: #fcd34d; }
+
+/* ══════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════ */
+.section {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 52px 40px;
+}
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+/* Section header */
+.sec-hdr {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 28px;
+}
+.sec-bar {
+  width: 5px; border-radius: 3px;
+  flex-shrink: 0; margin-top: 4px;
+}
+.sec-bar.red   { background: var(--red);   height: 52px; }
+.sec-bar.gold  { background: var(--gold);  height: 52px; }
+.sec-bar.navy  { background: var(--navy);  height: 52px; }
+.sec-bar.green { background: var(--green); height: 52px; }
+.sec-hdr-text {}
+.sec-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--lgray); display: block; margin-bottom: 6px;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900;
+  color: var(--navy); line-height: 1.15;
+  display: block;
+}
+.sec-title em { color: var(--red); font-style: italic; }
+.sec-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; color: var(--lgray);
+  display: block; margin-top: 6px;
+}
+
+/* ══════════════════════════════════
+   Q&A BLOCKS
+══════════════════════════════════ */
+.qa { margin-bottom: 20px; }
+.qa-q {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700; font-size: 15px;
+  color: var(--red);
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 10px;
+}
+.qa-q::before {
+  content: "Q";
+  background: var(--red); color: #fff;
+  font-size: 10px; font-weight: 800;
+  padding: 2px 6px; border-radius: 3px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.qa-a {
+  font-size: 14.5px; line-height: 1.75;
+  border-left: 3px solid var(--border);
+  padding-left: 18px; color: var(--gray);
+}
+.qa-a strong { color: var(--navy); }
+.qa-a .hl { background: #fef9c3; padding: 1px 4px; border-radius: 2px; }
+
+/* ══════════════════════════════════
+   LEGAL HIGHLIGHT BOXES
+══════════════════════════════════ */
+/* Two-Jars analogy */
+.jar-box {
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-bdr);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.jar-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.jar-box p { font-size: 14px; line-height: 1.75; color: #78350f; }
+.jar-box p strong { color: #451a03; font-weight: 700; }
+
+/* Lockbox */
+.lockbox {
+  background: var(--green-pale);
+  border: 2px solid #86efac;
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.lockbox-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 15px;
+  color: var(--green); margin-bottom: 16px;
+  letter-spacing: .3px;
+}
+.lock-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.lock-col h4 {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding-bottom: 6px; margin-bottom: 10px; border-bottom: 2px solid;
+}
+.lock-col.can  h4 { color: var(--green); border-color: var(--green); }
+.lock-col.cant h4 { color: var(--red);   border-color: var(--red); }
+.lock-item {
+  font-size: 13.5px; line-height: 1.55;
+  padding: 6px 10px 6px 26px;
+  border-radius: 4px; margin-bottom: 6px;
+  position: relative;
+}
+.lock-item::before { position: absolute; left: 8px; top: 6px; font-size: 13px; }
+.can  .lock-item { background: #dcfce7; color: #14532d; }
+.cant .lock-item { background: #fee2e2; color: #7f1d1d; }
+.can  .lock-item::before { content: "✓"; color: var(--green); font-weight: 700; }
+.cant .lock-item::before { content: "✗"; color: var(--red);   font-weight: 700; }
+.lock-cite {
+  margin-top: 14px; font-size: 12px; font-style: italic;
+  color: var(--lgray); border-top: 1px solid #bbf7d0;
+  padding-top: 10px;
+}
+
+/* Legal statute callout */
+.statute-box {
+  background: var(--blue-pale);
+  border: 1px solid #bfdbfe;
+  border-left: 5px solid #3b82f6;
+  border-radius: 0 10px 10px 0;
+  padding: 18px 22px;
+  margin: 20px 0;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.statute-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.statute-body {}
+.statute-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: #1e40af; margin-bottom: 6px; display: block;
+}
+.statute-body p { font-size: 13.5px; line-height: 1.7; color: #1e3a8a; }
+.statute-body p strong { color: #1e3a8a; font-weight: 700; }
+
+/* Timeline */
+.timeline {
+  margin: 20px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.tl-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  margin-bottom: 16px;
+}
+.tl-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--navy);
+  flex-shrink: 0; margin-top: 5px;
+}
+.tl-dot.resolved { background: var(--green); }
+.tl-content {}
+.tl-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--lgray); display: block; margin-bottom: 2px;
+}
+.tl-text {
+  font-size: 13.5px; line-height: 1.65; color: var(--gray);
+}
+.tl-text strong { color: var(--navy); }
+
+/* ══════════════════════════════════
+   COMPARISON TABLE
+══════════════════════════════════ */
+.table-wrap {
+  overflow: hidden; border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  margin: 16px 0;
+}
+table { width: 100%; border-collapse: collapse; }
+thead tr { background: var(--navy); }
+thead th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #fff; padding: 12px 14px; text-align: left;
+}
+thead th:not(:first-child) { text-align: center; }
+tbody tr:nth-child(even) { background: #f3f0ea; }
+tbody tr:nth-child(odd)  { background: var(--white); }
+tbody tr.hl-row  { background: #fef9c3 !important; font-weight: 600; }
+tbody tr.hl-row  td { color: #78350f; }
+tbody tr.hl-green{ background: #dcfce7 !important; font-weight: 600; }
+tbody tr.hl-green td { color: #14532d; }
+td { padding: 10px 14px; font-size: 13.5px; border-bottom: 1px solid #f3f4f6; }
+td:not(:first-child) {
+  text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 14px;
+}
+td.red-val { color: var(--red); font-weight: 700; }
+td.grn-val { color: var(--green); font-weight: 700; }
+td.dim-val { color: var(--lgray); font-size: 12px; }
+.table-note {
+  font-size: 11.5px; font-style: italic;
+  color: var(--lgray); margin-top: 8px;
+}
+
+/* ══════════════════════════════════
+   COST TABLE
+══════════════════════════════════ */
+.cost-intro {
+  font-size: 13px; color: var(--lgray);
+  margin-bottom: 14px; line-height: 1.6;
+}
+
+/* ══════════════════════════════════
+   DEFICIT GRID
+══════════════════════════════════ */
+.deficit-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 8px; margin: 16px 0;
+}
+.def-cell {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 8px; text-align: center;
+}
+.def-year {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; color: var(--navy);
+  display: block; margin-bottom: 4px;
+}
+.def-amt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800; color: var(--red);
+  display: block;
+}
+
+/* ══════════════════════════════════
+   CONTRACT CARDS
+══════════════════════════════════ */
+.contract-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;
+  margin: 16px 0;
+}
+.contract-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--navy);
+  border-radius: 8px; padding: 16px;
+}
+.cc-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 800; color: var(--navy);
+  display: block; margin-bottom: 4px;
+}
+.cc-cost {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 700; color: var(--green);
+  display: block; margin-bottom: 8px;
+}
+.cc-detail {
+  font-size: 12px; color: var(--lgray); line-height: 1.6;
+}
+
+/* ══════════════════════════════════
+   PERSPECTIVE BOX
+══════════════════════════════════ */
+.persp-box {
+  background: var(--green-pale);
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 16px 0;
+}
+.persp-box p { font-size: 14px; line-height: 1.75; color: #14532d; }
+.persp-box p strong { font-weight: 700; }
+
+/* ══════════════════════════════════
+   VOTE SECTION
+══════════════════════════════════ */
+.vote-section {
+  background: var(--navy);
+  padding: 60px 40px;
+  text-align: center;
+}
+.vote-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 900; color: #fff;
+  margin-bottom: 8px;
+}
+.vote-section h2 em { color: #fcd34d; font-style: normal; }
+.vote-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 24px; display: block;
+}
+.vote-cards {
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 32px;
+}
+.vote-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px; padding: 20px 24px;
+  text-align: left; min-width: 220px;
+}
+.vc-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+.vc-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: #fff; display: block; margin-bottom: 6px;
+  letter-spacing: .5px;
+}
+.vc-detail {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px; color: rgba(255,255,255,.55);
+  line-height: 1.6;
+}
+.vc-detail strong { color: var(--gold-lt); }
+
+/* ══════════════════════════════════
+   CONTACT BAR
+══════════════════════════════════ */
+.contact-bar {
+  background: var(--navy-dk);
+  border-top: 2px solid var(--gold);
+  padding: 24px 40px;
+  display: flex; justify-content: center;
+  align-items: center; gap: 48px; flex-wrap: wrap;
+}
+.contact-item { text-align: center; }
+.contact-item strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: #fff; display: block; letter-spacing: .5px;
+}
+.contact-item span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; color: var(--gold-lt);
+}
+
+/* ══════════════════════════════════
+   FINE PRINT FOOTER
+══════════════════════════════════ */
+.fine-footer {
+  background: #0a1525;
+  padding: 12px 40px;
+  display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 6px;
+}
+.fine-footer span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,.3);
+  letter-spacing: .3px;
+}
+
+/* ══════════════════════════════════
+   DIVIDER
+══════════════════════════════════ */
+hr.div { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 700px) {
+  .site-nav { padding: 0 16px; flex-direction: column; align-items: flex-start; }
+  .nav-links { gap: 0; }
+  .nav-links a { padding: 10px 8px; font-size: 11px; }
+  .hero { padding: 40px 20px; }
+  .hero-stats { flex-direction: column; }
+  .hs-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .section { padding: 36px 20px; }
+  .lock-grid { grid-template-columns: 1fr; }
+  .deficit-grid { grid-template-columns: repeat(3,1fr); }
+  .contract-grid { grid-template-columns: 1fr; }
+  .coverage-grid { grid-template-columns: 1fr !important; }
+  .contact-bar { gap: 24px; padding: 24px 20px; }
+  .fine-footer { flex-direction: column; }
+  .vote-section { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ STICKY NAV ══════ -->
+<nav class="site-nav">
+  <div class="nav-brand">Baughman Township · <em>Fire &amp; EMS Levy</em></div>
+  <ul class="nav-links">
+    <li><a href="#legal">Legal &amp; Trust</a></li>
+    <li><a href="#taxes">Tax Costs</a></li>
+    <li><a href="#finances">Finances</a></li>
+    <li><a href="#whyitmatters">Who Responds?</a></li>
+    <li><a href="#vote" class="nav-cta">Vote May 6</a></li>
+  </ul>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<header class="hero">
+  <div class="hero-tag">Baughman Township · Wayne County, Ohio</div>
+  <h1>Fire &amp; EMS Levy<br><em>May 6, 2026</em></h1>
+  <p class="hero-sub">Your questions answered — straight from official Township records</p>
+  <div class="hero-stats">
+    <div class="hs-cell">
+      <span class="hs-val">1.75</span>
+      <span class="hs-lbl">Mills</span>
+    </div>
+    <div class="hs-cell">
+      <span class="hs-val">5 Yrs</span>
+      <span class="hs-lbl">Not Permanent</span>
+    </div>
+    <div class="hs-cell">
+      <span class="hs-val">$80</span>
+      <span class="hs-lbl">Avg. Home / Year</span>
+    </div>
+    <div class="hs-cell">
+      <span class="hs-val">$0</span>
+      <span class="hs-lbl">Current Fire Levy</span>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-wrap">
+    <div class="countdown-label" id="cdLabel">📅 Early Voting Begins In</div>
+    <div class="countdown-units" id="cdUnits">
+      <div class="cd-block"><span class="cd-num" id="cd-days">--</span><span class="cd-unit">Days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-unit">Hours</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-unit">Mins</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-unit">Secs</span></div>
+    </div>
+    <div class="cd-started" id="cdStarted">🗳️ Early Voting Is Open Now! — April 8 to May 5</div>
+    <div class="countdown-sub"><strong>April 8 – May 5</strong> · Wayne County BOE · 200 Vanover St, Wooster · 330-287-5480</div>
+  </div>
+</header>
+<div class="hero-gold-bar"></div>
+
+<!-- ══════ ALERT BANNER ══════ -->
+<div class="alert-banner">
+  <span style="font-size:20px;">⚠️</span>
+  <p>Baughman Township is the <span>only township in all of Wayne County</span> with ZERO dedicated fire levy funding. Every neighboring township has been paying for fire protection for years.</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — LEGAL & TRUST
+══════════════════════════════════════════════ -->
+<div id="legal" style="background:var(--white);">
+<div class="section">
+
+  <div class="sec-hdr">
+    <div class="sec-bar red"></div>
+    <div class="sec-hdr-text">
+      <span class="sec-label">Concern #1 — The Most Common Reason People Voted No</span>
+      <span class="sec-title">Legal Protections &amp; <em>Trust</em></span>
+      <span class="sec-sub">"I don't trust the township with my money." — Here is why that concern doesn't apply to a levy fund.</span>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Could levy money be used for lawsuits like before?</div>
+    <div class="qa-a">
+      <strong>No — and this is the most important fact on this page.</strong> The lawsuits you've heard about were paid from the township's <em>general fund</em> — the regular checking account that trustees control. A fire/EMS levy creates a <span class="hl">completely different account</span>, restricted by Ohio state law. Trustees have zero legal authority to move levy money anywhere else. It works exactly the same way the road &amp; bridge fund works — that money can only fix roads, and the state auditor verifies it every year. The levy fund works identically.
+    </div>
+  </div>
+
+  <div class="jar-box">
+    <div class="jar-label">💡 The Two Jars Explanation</div>
+    <p>Think of the township as having two separate money jars on a shelf. The <strong>first jar (General Fund)</strong> is a regular jar trustees can spend on many things — including lawyers when disputes arise. That's the jar that paid for past lawsuits. The <strong>second jar (Levy Fund)</strong> has a padlock on it that only the State of Ohio holds the key to. The label on that jar says <em>"Fire and EMS Contracts Only."</em> No trustee, no dispute, no lawsuit can open that jar for anything else. <strong>These are not the same jar.</strong></p>
+  </div>
+
+  <div class="lockbox">
+    <div class="lockbox-title">🔒 What Ohio Law Says Levy Money Can and Cannot Do</div>
+    <div class="lock-grid">
+      <div class="lock-col can">
+        <h4>Levy Money CAN Pay For:</h4>
+        <div class="lock-item">Fire department contracts (Orrville, Marshallville, North Lawrence)</div>
+        <div class="lock-item">EMS / paramedic service contracts</div>
+        <div class="lock-item">Fire and rescue equipment</div>
+        <div class="lock-item">Emergency response operations</div>
+      </div>
+      <div class="lock-col cant">
+        <h4>Levy Money CANNOT Pay For:</h4>
+        <div class="lock-item">Lawsuits or attorney fees — ever</div>
+        <div class="lock-item">Road repairs or any other township service</div>
+        <div class="lock-item">Trustee salaries or bonuses</div>
+        <div class="lock-item">Any non-fire/EMS expense whatsoever</div>
+      </div>
+    </div>
+    <div class="lock-cite">Ohio Revised Code § 5705 — The Ohio State Auditor reviews township accounts annually. Misuse means personal repayment liability and potential criminal charges for any official who violates this. It's the law, not a promise.</div>
+  </div>
+
+  <div class="statute-box">
+    <div class="statute-icon">⚖️</div>
+    <div class="statute-body">
+      <span class="statute-title">Ohio Revised Code § 5705 — Statutory Authority</span>
+      <p>Ohio law requires that all levy proceeds be deposited into a <strong>separate, dedicated fund</strong> that can only be spent for the purpose stated on the ballot. Township trustees are personally liable — including potential criminal charges — for any misuse of restricted fund money. The Ohio State Auditor performs mandatory annual reviews of all township accounts to verify compliance. This protection exists by statute, not by promise or trust.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="qa">
+    <div class="qa-q">What were those lawsuits actually about?</div>
+    <div class="qa-a">
+      In 2018, Baughman Township <strong>left the East Wayne Joint Fire District</strong> — a shared regional fire arrangement. When they left, there was a dispute over how the shared savings account should be divided. The township believed it was owed far more than the County Auditor calculated ($50,000–$200,000 vs. the auditor's figure of about $2,800). Courts ultimately dismissed the main case in <strong>December 2021.</strong> Those legal battles are over. This levy has nothing to do with that dispute — it creates new, restricted money that goes directly to the three fire departments serving Baughman residents today.
+    </div>
+  </div>
+
+  <!-- Timeline of legal history -->
+  <div style="margin-top:20px;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--lgray);margin-bottom:14px;">Timeline of Legal Events</div>
+    <ul class="timeline">
+      <li class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-date">2018</span>
+          <span class="tl-text">Baughman Township <strong>exits the East Wayne Joint Fire District.</strong> A shared regional fire arrangement ends, triggering a dispute over division of the shared savings account.</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-date">2018 – 2021</span>
+          <span class="tl-text">Township pursues legal action, believing it was owed <strong>$50,000–$200,000</strong> from shared funds. County Auditor calculated the figure at approximately <strong>$2,800.</strong> Dispute is litigated in courts using the <em>general fund</em> — not any levy.</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-dot resolved"></div>
+        <div class="tl-content">
+          <span class="tl-date">December 2021</span>
+          <span class="tl-text"><strong>Courts dismiss the main case.</strong> The legal dispute over the East Wayne Joint Fire District exit is over. No ongoing litigation. No pending cases related to this matter.</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-dot resolved"></div>
+        <div class="tl-content">
+          <span class="tl-date">Today</span>
+          <span class="tl-text">The township contracts with <strong>three fire departments</strong> for coverage. The proposed levy creates a new, <strong>legally restricted fund</strong> that did not exist during any of those legal disputes and is structurally immune to the same misuse.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="qa" style="margin-top:8px;">
+    <div class="qa-q">Does voting No send a message to the trustees?</div>
+    <div class="qa-a">
+      Voting No at a levy election does <strong>not</strong> remove a trustee, affect their pay, or change their position. Trustees are held accountable at <strong>trustee elections</strong> — those are the elections to watch if you want change in leadership. Voting No on the levy only removes fire and EMS funding from the township. The trustees stay in place either way. <strong>Your fire protection and your trustee accountability are two completely separate decisions at two different elections.</strong>
+    </div>
+  </div>
+
+</div>
+</div><!-- end legal section -->
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — TAX COSTS
+══════════════════════════════════════════════ -->
+<div id="taxes">
+<div class="section">
+
+  <div class="sec-hdr">
+    <div class="sec-bar gold"></div>
+    <div class="sec-hdr-text">
+      <span class="sec-label">Concern #2 — A Fair Question</span>
+      <span class="sec-title">What Does This Actually <em>Cost?</em></span>
+      <span class="sec-sub">"I already pay enough taxes." — Here's how 1.75 mills compares to every other township in Wayne County.</span>
+    </div>
+  </div>
+
+  <p style="font-size:14.5px;line-height:1.75;margin-bottom:20px;">
+    Baughman Township is the <strong style="color:var(--navy)">only township in all of Wayne County with zero fire levy funding.</strong> Every single neighboring township has been paying for fire protection through dedicated levies for years. The proposed 1.75 mills would still be the <strong style="color:var(--green)">lowest fire levy rate in the entire county.</strong>
+  </p>
+
+  <!-- Township comparison -->
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--navy);letter-spacing:.5px;margin-bottom:10px;">WAYNE COUNTY FIRE LEVY COMPARISON</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Township</th>
+          <th>Total Tax Rate</th>
+          <th>Fire Levy</th>
+          <th>Annual Fire Revenue</th>
+          <th>vs. Baughman</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hl-row">
+          <td><strong>Baughman — CURRENT</strong></td>
+          <td class="red-val">2.4 mills</td>
+          <td class="red-val">0 mills</td>
+          <td class="red-val">$0</td>
+          <td class="red-val">—</td>
+        </tr>
+        <tr class="hl-green">
+          <td><strong>Baughman — If Levy Passes</strong></td>
+          <td class="grn-val">4.15 mills</td>
+          <td class="grn-val">1.75 mills</td>
+          <td class="grn-val">~$195,049</td>
+          <td class="grn-val">LOWEST in County</td>
+        </tr>
+        <tr>
+          <td>Sugar Creek Township</td>
+          <td>8.1 – 8.7 mills</td>
+          <td>2.9 – 3.5 mills</td>
+          <td>$440,600+</td>
+          <td>2× Baughman's rate</td>
+        </tr>
+        <tr>
+          <td>Green Township</td>
+          <td>7.1 mills</td>
+          <td>4.0 mills</td>
+          <td>$1,053,500</td>
+          <td>2.3× Baughman's rate</td>
+        </tr>
+        <tr>
+          <td>Chippewa Township</td>
+          <td>9.1 mills</td>
+          <td>5.0 mills</td>
+          <td>$958,900</td>
+          <td>2.9× Baughman's rate</td>
+        </tr>
+        <tr>
+          <td>Milton Township</td>
+          <td>9.35 mills</td>
+          <td>5.0 mills</td>
+          <td>$400,700</td>
+          <td>2.9× Baughman's rate</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">Source: Official Baughman Township February 2026 trustee presentation. Wayne County fire levies range from 2 to 6.75 mills countywide.</p>
+
+  <hr class="div">
+
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--navy);letter-spacing:.5px;margin-bottom:6px;">WHAT THIS LEVY COSTS YOUR HOUSEHOLD</div>
+  <p class="cost-intro">Ohio taxes property at 35% of market value. Formula: Home Value × 35% × 1.75 ÷ 1,000 = Annual levy cost.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Home Market Value</th>
+          <th>Per Year</th>
+          <th>Per Month</th>
+          <th>Per Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>$75,000</td>
+          <td class="grn-val">$46</td>
+          <td class="dim-val">$3.83/mo</td>
+          <td class="dim-val">13¢/day</td>
+        </tr>
+        <tr>
+          <td>$100,000</td>
+          <td class="grn-val">$61</td>
+          <td class="dim-val">$5.08/mo</td>
+          <td class="dim-val">17¢/day</td>
+        </tr>
+        <tr class="hl-row">
+          <td>⭐ $130,000 — Avg. Baughman Home</td>
+          <td class="grn-val">$80</td>
+          <td class="dim-val">$6.60/mo</td>
+          <td class="dim-val">22¢/day</td>
+        </tr>
+        <tr>
+          <td>$150,000</td>
+          <td class="grn-val">$92</td>
+          <td class="dim-val">$7.66/mo</td>
+          <td class="dim-val">25¢/day</td>
+        </tr>
+        <tr>
+          <td>$200,000</td>
+          <td class="grn-val">$123</td>
+          <td class="dim-val">$10.21/mo</td>
+          <td class="dim-val">34¢/day</td>
+        </tr>
+        <tr>
+          <td>$250,000</td>
+          <td class="grn-val">$153</td>
+          <td class="dim-val">$12.77/mo</td>
+          <td class="dim-val">42¢/day</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">Agricultural land taxed at lower CAUV rate — contact Wayne County Auditor for your exact figure. First payment not due until 2027.</p>
+
+  <div class="persp-box" style="margin-top:20px;">
+    <p>💡 <strong>To put it simply:</strong> The average Baughman household pays less than <strong>$7/month</strong> for this levy. That's less than a tank of propane, less than a bag of feed. In return, three fire departments remain under contract and obligated to respond when you call. Without the levy, those contracts end — and Orrville, Marshallville, and North Lawrence have all stated they will not continue service without a funded agreement. <strong>This is the most straightforward community protection purchase available to Baughman residents.</strong></p>
+  </div>
+
+</div>
+</div><!-- end taxes section -->
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3 — FINANCIAL REALITY
+══════════════════════════════════════════════ -->
+<div id="finances" style="background:var(--white);">
+<div class="section">
+
+  <div class="sec-hdr">
+    <div class="sec-bar navy"></div>
+    <div class="sec-hdr-text">
+      <span class="sec-label">Concern #3 — The Numbers</span>
+      <span class="sec-title">The Township's <em>Financial Reality</em></span>
+      <span class="sec-sub">"The township has money — they don't need more." — The general fund is running deficits every single year.</span>
+    </div>
+  </div>
+
+  <p style="font-size:14.5px;line-height:1.75;margin-bottom:16px;">
+    The township's general fund — the account that currently pays for fire — has spent <strong style="color:var(--red)">more than it takes in every single year since 2020.</strong> The 2026 budget projects a balance drop from $360,846 to $213,346. Fire contracts alone cost $180,000/year and will rise to $198,000 by Year 3. The general fund simply cannot sustain this.
+  </p>
+
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:.5px;">GENERAL FUND DEFICIT — EVERY YEAR (Official Township Records)</div>
+  <div class="deficit-grid">
+    <div class="def-cell"><span class="def-year">2020</span><span class="def-amt">-$147,639</span></div>
+    <div class="def-cell"><span class="def-year">2021</span><span class="def-amt">-$156,429</span></div>
+    <div class="def-cell"><span class="def-year">2022</span><span class="def-amt">-$187,061</span></div>
+    <div class="def-cell"><span class="def-year">2023</span><span class="def-amt">-$111,168</span></div>
+    <div class="def-cell"><span class="def-year">2024</span><span class="def-amt">-$66,848</span></div>
+    <div class="def-cell"><span class="def-year">2025</span><span class="def-amt">-$66,709</span></div>
+  </div>
+
+  <hr class="div">
+
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:.5px;">CURRENT FIRE COVERAGE — THREE DEPARTMENTS</div>
+  <div class="contract-grid">
+    <div class="contract-card">
+      <span class="cc-name">Orrville Fire</span>
+      <span class="cc-cost">$60,000/yr</span>
+      <span class="cc-detail">Daytime staffing · Ladder truck · Paramedics · Rapid Intervention Team</span>
+    </div>
+    <div class="contract-card">
+      <span class="cc-name">Marshallville Fire</span>
+      <span class="cc-cost">$60,000/yr</span>
+      <span class="cc-detail">Daytime staffing · Paramedics · Ice Rescue · Tanker</span>
+    </div>
+    <div class="contract-card">
+      <span class="cc-name">North Lawrence Fire</span>
+      <span class="cc-cost">$60,000/yr</span>
+      <span class="cc-detail">24/7 staffing · Paramedics · Tanker · Newer apparatus</span>
+    </div>
+  </div>
+
+  <div style="background:#fef9c3;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-top:6px;">
+    <strong style="font-family:'Barlow Condensed',sans-serif;color:#78350f;">Total Current Annual Cost: $180,000</strong>
+    <span style="font-size:13px;color:#92400e;display:block;margin-top:4px;">If the levy passes, these contracts are covered entirely by levy revenue (~$195,049/yr). Zero general fund spending required for fire and EMS.</span>
+  </div>
+
+  <div style="background:var(--red-pale);border:2px solid #fca5a5;border-left:5px solid var(--red);border-radius:0 8px 8px 0;padding:18px 20px;margin-top:12px;">
+    <strong style="font-family:'Barlow Condensed',sans-serif;font-size:15px;color:var(--red);display:block;margin-bottom:10px;letter-spacing:.5px;">🚨 ORRVILLE FIRE HAS ALREADY SAID NO</strong>
+    <p style="font-size:14px;color:#7f1d1d;line-height:1.75;margin-bottom:10px;">
+      Orrville Fire Department has formally stated it will <strong>not continue service to Baughman Township without a funded contract.</strong> This is not a threat — it is a straightforward business reality. They staff paid firefighters and run expensive equipment. Without guaranteed payment, they cannot commit resources to our township.
+    </p>
+    <p style="font-size:14px;color:#7f1d1d;line-height:1.75;">
+      Marshallville and North Lawrence have made the same position clear. <strong>None of the three departments serving Baughman today have agreed to provide fire or EMS coverage if the levy fails.</strong> There is no backup plan. There is no handshake agreement. If the levy fails, the contracts end.
+    </p>
+  </div>
+
+  <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:16px 20px;margin-top:12px;">
+    <strong style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:#0369a1;display:block;margin-bottom:6px;letter-spacing:.5px;">📞 WHO WOULD YOU CALL?</strong>
+    <p style="font-size:13.5px;color:#0c4a6e;line-height:1.75;">
+      If the levy fails and contracts lapse, <strong>Wayne County 911 would still answer your call</strong> — but dispatchers would have no contracted department obligated to respond to Baughman Township. Response would depend entirely on whatever mutual aid a neighboring department chose to provide that day, at their discretion, after their own township's calls are handled first. <strong>That is not a system. That is hope.</strong>
+    </p>
+  </div>
+
+</div>
+</div><!-- end finances section -->
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4 — WHY IT MATTERS
+══════════════════════════════════════════════ -->
+<div id="whyitmatters">
+<div class="section">
+
+  <div class="sec-hdr">
+    <div class="sec-bar red"></div>
+    <div class="sec-hdr-text">
+      <span class="sec-label">The Plain Truth — No Spin</span>
+      <span class="sec-title">If the Levy Fails,<br><em>Who Responds?</em></span>
+      <span class="sec-sub">This is not a scare tactic. It is exactly what happens under Ohio law when contracts end.</span>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Is the township required by law to have fire or EMS coverage?</div>
+    <div class="qa-a">
+      <strong>No.</strong> Ohio Attorney General Opinion No. 94-067 is plain: townships are not legally required to provide fire or EMS services. That means when the money runs out, there is no law that forces anyone to show up. No backup. No fallback. The township would simply have no fire or EMS coverage until something new is arranged — which takes time the residents of Baughman Township may not have in an emergency.
+    </div>
+  </div>
+
+  <div class="statute-box">
+    <div class="statute-icon">⚖️</div>
+    <div class="statute-body">
+      <span class="statute-title">Ohio AG Opinion No. 94-067 — What It Means for Your Family</span>
+      <p>The Ohio Attorney General formally concluded that township trustees have <strong>no legal duty</strong> to establish or maintain fire or EMS service. Fire protection is a community choice — and that choice requires funding. Without this levy, the general fund — which has run a deficit every year since 2020 — is the only thing standing between Baughman Township and zero fire coverage.</p>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="qa">
+    <div class="qa-q">Orrville already said no — what does that mean for us?</div>
+    <div class="qa-a">
+      Orrville Fire Department has formally told the township it will <strong>not provide service without a funded contract.</strong> Marshallville and North Lawrence have taken the same position. These are not threats — they are the ordinary business of running a fire department. They have paid staff, equipment, and their own communities to serve first. <strong>Without a contract, they have no obligation to cross into Baughman Township.</strong> When the levy fails, the contracts expire, and there is no plan B.
+    </div>
+  </div>
+
+  <!-- No Coverage Reality Box -->
+  <div style="background:#1a2f4e;border-radius:10px;padding:24px 26px;margin:20px 0;color:white;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fcd34d;margin-bottom:14px;">What Happens the Day After the Levy Fails</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:12px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:#fca5a5;margin-bottom:6px;">WHAT ENDS</div>
+        <div style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.75);">
+          ✗ Orrville Fire contract — terminated<br>
+          ✗ Marshallville Fire contract — terminated<br>
+          ✗ North Lawrence Fire contract — terminated<br>
+          ✗ Guaranteed EMS response — gone<br>
+          ✗ ISO fire rating — will likely increase, raising home insurance premiums
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:12px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:#86efac;margin-bottom:6px;">WHAT CONTINUES WITH LEVY</div>
+        <div style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.75);">
+          ✓ All three departments remain under contract<br>
+          ✓ Guaranteed response priority for Baughman calls<br>
+          ✓ EMS coverage 24 hours a day<br>
+          ✓ Current ISO rating maintained<br>
+          ✓ General fund fully relieved of fire costs
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">What about mutual aid — won't neighboring departments still help?</div>
+    <div class="qa-a">
+      Mutual aid exists for overflow situations — when a department's own township needs them at the same time as a neighbor. It is <strong>not a substitute for a contract.</strong> Mutual aid is voluntary, discretionary, and always secondary to a department's own paying customers. Relying on mutual aid as Baughman Township's primary fire coverage would be like relying on a neighbor's truck because you sold your own car. It might work sometimes. <strong>It will not work when it matters most.</strong>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Our home insurance — would it be affected?</div>
+    <div class="qa-a">
+      Yes, very likely. Insurance companies use ISO fire protection ratings to set premiums. Baughman Township's current rating is based on having contracted fire coverage nearby. If contracts lapse and there is no organized fire response, the ISO rating would likely drop — and <strong>homeowner insurance premiums would increase</strong> to reflect the higher risk. The levy's cost per year may well be less than the insurance premium increase from losing coverage.
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="qa">
+    <div class="qa-q">If we vote yes now, are we stuck forever?</div>
+    <div class="qa-a">
+      No. This levy is <strong>temporary — five years only.</strong> It expires in 2031 automatically. Voters decide again at that point, or it simply ends. The five-year window also gives the township time to explore long-term structural options: a joint fire district with a neighboring township, a new regional service model, or other arrangements. A YES vote in May is not a permanent commitment. It is five years of breathing room to keep your neighbors covered while the community works toward a lasting solution.
+    </div>
+  </div>
+
+  <div class="jar-box" style="margin-top:8px;">
+    <div class="jar-label">💬 Plain Talk for Baughman Township</div>
+    <p>Most folks in this township don't want a bigger government or more taxes. That's a fair position. But this levy isn't about government growing — it's about three fire departments that have told us plainly they won't come without a contract, and a general fund that's been in the red every year since 2020. The question on May 6 isn't whether you like taxes. It's whether you want a fire truck to show up when your barn catches fire or your spouse has a heart attack. <strong>$61 a year on a $100,000 home. Five years. Three departments currently under contract — but not for long without this vote.</strong></p>
+  </div>
+
+</div>
+</div><!-- end why it matters section -->
+
+
+<!-- ══════ VOTE SECTION ══════ -->
+<div id="vote">
+<div class="vote-section">
+  <span class="vote-date">Tuesday · May 6, 2026</span>
+  <h2>Vote <em>YES</em> on the<br>Fire &amp; EMS Levy</h2>
+  <p style="font-family:'Lora',serif;font-size:14px;color:rgba(255,255,255,.55);margin-bottom:28px;font-style:italic;">Polls open 6:30 AM – 7:30 PM · Check your voter registration card for polling location</p>
+  <div class="vote-cards">
+    <div class="vote-card">
+      <span class="vc-icon">🗳️</span>
+      <span class="vc-title">Election Day</span>
+      <span class="vc-detail"><strong>Tuesday, May 6, 2026</strong><br>6:30 AM – 7:30 PM<br>See your voter card for location</span>
+    </div>
+    <div class="vote-card">
+      <span class="vc-icon">📅</span>
+      <span class="vc-title">Early In-Person Voting</span>
+      <span class="vc-detail"><strong>April 8 – May 5</strong><br>Wayne County BOE<br>200 Vanover St, Wooster<br><strong>330-287-5480</strong></span>
+    </div>
+    <div class="vote-card">
+      <span class="vc-icon">📬</span>
+      <span class="vc-title">Absentee / Mail Ballot</span>
+      <span class="vc-detail">No excuse needed<br>Request by <strong>May 3</strong><br>Return postmarked by May 5<br><strong>330-287-5480</strong></span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════ CONTACT BAR ══════ -->
+<div class="contact-bar">
+  <div class="contact-item">
+    <strong>Noelle Ressler</strong>
+    <span>216-294-8358</span>
+    <span><a href="mailto:noeller&#64;rbrconsulting.biz" style="color:var(--gold-lt);text-decoration:none;">noeller&#64;rbrconsulting.biz</a></span>
+  </div>
+  <div class="contact-item">
+    <strong>John Rutter</strong>
+    <span>330-465-9001</span>
+    <span><a href="mailto:jrutter&#64;hypercrawl.com" style="color:var(--gold-lt);text-decoration:none;">jrutter&#64;hypercrawl.com</a></span>
+  </div>
+  <div class="contact-item">
+    <strong>Wayne Co. Board of Elections</strong>
+    <span>330-287-5480 · waynecountyoh.gov</span>
+  </div>
+</div>
+
+<!-- ══════ FINE PRINT ══════ -->
+<div class="fine-footer">
+  <span>Paid for by the Baughman Township Fire/EMS Levy Committee</span>
+  <span>All financial data from official Township records &amp; February 2026 Trustee Presentation</span>
+  <span>Not authorized by any candidate or candidate's committee</span>
+</div>
+
+
+<script>
+(function() {
+  var earlyVote   = new Date('2026-04-08T00:00:00');
+  var electionDay = new Date('2026-05-06T06:30:00');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    var now  = new Date();
+
+    if (now >= earlyVote && now < electionDay) {
+      document.getElementById('cdLabel').style.display   = 'none';
+      document.getElementById('cdUnits').style.display   = 'none';
+      document.getElementById('cdStarted').style.display = 'block';
+      return;
+    }
+
+    if (now >= electionDay) {
+      document.getElementById('cdLabel').textContent     = '✅ Voting Has Closed — Thank You Baughman Township!';
+      document.getElementById('cdUnits').style.display   = 'none';
+      document.getElementById('cdStarted').style.display = 'none';
+      return;
+    }
+
+    var diff = earlyVote - now;
+    var days  = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var mins  = Math.floor((diff % 3600000)  / 60000);
+    var secs  = Math.floor((diff % 60000)    / 1000);
+
+    document.getElementById('cdLabel').textContent  = '📅 Early Voting Begins In';
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    document.getElementById('cd-secs').textContent  = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+</body>
+</html>
